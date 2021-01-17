@@ -3,11 +3,11 @@ server:
 
 spring:
   application:
-    name: ORDER
+    name: Order
 
   #数据库配置
   datasource:  #3306后面的是Mysql中数据库的名称不是表的
-    url: jdbc://mysql://localhost:3306/school?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/school?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -18,12 +18,13 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:10000/eureka/
+      defaultZone: http://localhost:10001/eureka/
+
 
 #mybatis
 #扫描实体类的所在包
 mybatis:
-  type-aliases-package: com.example.demo.pojo
+  type-aliases-package: com.example.demo.model
   #mapper接口对应的.xml文件
   mapper-locations:
     classpath: mapper/*.xml
