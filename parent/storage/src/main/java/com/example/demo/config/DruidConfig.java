@@ -50,28 +50,18 @@ public class DruidConfig {
     }
 
 
-
-//    //设置过滤
-//    public FilterRegistrationBean startFilter() {
-//        FilterRegistrationBean<Filter> bean = new FilterRegistrationBean<>();
-//        bean.setFilter(new WebStatFilter());
-//        Map<String, String> filterMap = new HashMap<>();
-//        //设置哪些不被拦截
-//        filterMap.put("exclusions", "*.js,*.css,/druid/*");
-//        bean.setInitParameters(filterMap);
-//        ArrayList<String> list = new ArrayList<>();
-//        list.add("/*");
-//        bean.setUrlPatterns(list);
-//        return bean;
-//    }
-
-    @Bean
-    public FilterRegistrationBean filterRegistrationBean() {
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
-        filterRegistrationBean.setFilter(new WebStatFilter());
-        filterRegistrationBean.addUrlPatterns("/*");
-        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
-        return filterRegistrationBean;
+    //    //设置过滤
+    public FilterRegistrationBean startFilter() {
+        FilterRegistrationBean<Filter> bean = new FilterRegistrationBean<>();
+        bean.setFilter(new WebStatFilter());
+        Map<String, String> filterMap = new HashMap<>();
+        //设置哪些不被拦截
+        filterMap.put("exclusions", "*.js,*.css,/druid/*");
+        bean.setInitParameters(filterMap);
+        ArrayList<String> list = new ArrayList<>();
+        list.add("/*");
+        bean.setUrlPatterns(list);
+        return bean;
     }
 
 

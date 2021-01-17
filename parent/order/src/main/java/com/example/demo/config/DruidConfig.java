@@ -34,7 +34,6 @@ public class DruidConfig {
 
 
     //配置druid管理界面
-    //所用信息均在druid后显示，所以要加*
     @Bean
     public ServletRegistrationBean startViewServlet() {
         ServletRegistrationBean<StatViewServlet> bean = new ServletRegistrationBean<>(new StatViewServlet(), "/druid/*");
