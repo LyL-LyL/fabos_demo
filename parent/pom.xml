@@ -92,6 +92,7 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+
         <!-- druid连接池，用较新版本，否则启东时加载数据源报错 -->
         <dependency>
             <groupId>com.alibaba</groupId>
