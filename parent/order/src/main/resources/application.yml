@@ -20,6 +20,13 @@ eureka:
     service-url:
       defaultZone: http://localhost:10001/eureka/
 
+#开启熔断器保护
+feign:
+  hystrix:
+    enabled: true
+
+
+
 
 #mybatis
 #扫描实体类的所在包

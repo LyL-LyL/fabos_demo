@@ -3,6 +3,7 @@ package com.example.demo.mappers;
 import com.example.demo.mapper.MyMapper;
 import com.example.demo.model.Order;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Mapper
 @Component
+
 public interface OrderMapper extends MyMapper<Order> {
 
 

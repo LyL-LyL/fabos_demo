@@ -19,9 +19,15 @@ public class StorageService {
     @Autowired
     private StorageMapper storageMapper;
 
-    public int addOrder() {
-
-        return 1;
+    /**
+     * 增加订单，减少库存数量。更新仓库数据
+     *
+     */
+    public int addOrder(String storageId,Integer quantity) {
+        Storage storage = storageMapper.selectByPrimaryKey(storageId);
+        storage.setStorageQuantity(storage.getStorageQuantity() - quantity);
+        int result = storageMapper.updateByPrimaryKeySelective(storage);
+        return result;
     }
 
     //增加库存
