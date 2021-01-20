@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @DATE: 2021-01-18
  */
 @Component
-@FeignClient(value = "STORAGE", fallback = StorageService.class)  //提供者的应用名(在eureka注册的),回调函数
+@FeignClient(value = "STORAGE", fallback = StorageService.class)  //提供者的应用名(在eureka注册的),程序终止运行后执行fallback
 public interface StorageFeignClient {
 
     /**
