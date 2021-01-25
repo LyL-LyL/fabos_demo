@@ -3,9 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.AddOrderDTO;
 import com.example.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author: liuyl@cecjiutian.com
@@ -22,8 +20,9 @@ public class OrderController {
      * 增加
      * 不能用@RequestParam注解，报400，bad request
      */
-    @PostMapping("/addOrder")
-    public String addOrder(@RequestBody AddOrderDTO addOrderDTO){
+//    @PostMapping("/addOrder")
+    @RequestMapping(value = "/addOrder", method = RequestMethod.POST)
+    public String addOrder(@RequestBody AddOrderDTO addOrderDTO) {
         int result = orderService.addOrder(addOrderDTO);
         return result == 1 ? "下单成功" : "下单失败";
     }
