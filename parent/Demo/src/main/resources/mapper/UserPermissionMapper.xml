@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mappers.UserPermissionMapper">
+
+    <resultMap id="PermissionResult" type="com.example.demo.pojo.Permission">
+        <result column="permissionId" property="permissionId" jdbcType="LONG"/>
+        <result column="permissionName" property="permissionName" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="UserResult" type="com.example.demo.pojo.User">
+        <result column="id" property="id" jdbcType="LONG"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="userpassword" property="userpassword" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 根据用户id获取权限 -->
+    <select id="getPermissionById" resultMap="PermissionResult">
+        select p.*
+        from
+        permission p left join userpermission up on p.permissionId = up.permissionId
+        where up.id = #{id}
+    </select>
+
+
+    <select id="getUserByRight" resultMap="UserResult">
+        select user.*
+        from
+        userpermission left join user on userpermission.id = user.id
+        left join permission on userpermission.permissionId = permission.permissionId
+        where permission.permissionId = #{permissionId}
+    </select>
+
+
+</mapper>
+
+
+
+
+
+

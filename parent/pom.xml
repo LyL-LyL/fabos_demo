@@ -10,6 +10,7 @@
     <modules>
         <module>order</module>
         <module>storage</module>
+        <module>Demo</module>
     </modules>
 
     <parent>
